@@ -26,11 +26,10 @@ const Header = ({ siteTitle, curPage }) => (
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        position: 'relative',
       }}
     >
-      <Link to="/">
-        <Avatar />
-      </Link>
+      <Avatar />
       <div
         style={{ marginLeft: '5px', display: 'flex', flexDirection: 'column' }}
       >
