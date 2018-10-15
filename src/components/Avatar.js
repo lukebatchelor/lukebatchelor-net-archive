@@ -10,6 +10,6 @@ const avatarStyles = {
   marginRight: '15px',
 };
 
-const Avatar = () => <img style={avatarStyles} src={profileImg} />;
+const Avatar = () => <img style={avatarStyles} src={profileImg} alt="Avatar" />;
 
 export default Avatar;
