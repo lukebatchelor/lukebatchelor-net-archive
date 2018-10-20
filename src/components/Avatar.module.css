@@ -26,6 +26,21 @@
   animation: showMessage 3s linear;
 }
 
+.profileAvatar {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+}
+
+@media only screen and (max-device-width: 375px) {
+  .profileAvatar {
+    display: none;
+  }
+}
+
 @keyframes showMessage {
   0% {
     opacity: 0;

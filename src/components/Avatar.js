@@ -2,16 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import profileImg from '../images/profile.jpg';
-import { speechBubble, showMessage } from './Avatar.module.css';
-
-const avatarStyles = {
-  display: 'inline-block',
-  width: '100px',
-  height: '100px',
-  borderRadius: '50px',
-  marginBottom: '0px',
-  marginRight: '15px',
-};
+import { speechBubble, showMessage, profileAvatar } from './Avatar.module.css';
 
 const messages = [
   'ffff ffff fffff',
@@ -40,8 +31,8 @@ class Avatar extends React.Component {
     return (
       <>
         <img
-          style={avatarStyles}
           src={profileImg}
+          className={profileAvatar}
           alt="Avatar"
           onClick={this.avatarClicked}
         />
