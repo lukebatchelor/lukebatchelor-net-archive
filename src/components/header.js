@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import Avatar from './Avatar';
 
 const navLinkStyle = (linkTo, curPage) => ({
-  textDecoration: curPage === linkTo ? 'undeline' : 'none',
+  textDecoration: curPage === linkTo ? 'underline' : 'none',
   textDecorationStyle: 'double',
   color: 'blanchedalmond',
   fontSize: 'initial',
