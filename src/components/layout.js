@@ -63,7 +63,7 @@ const Layout = ({ children, curPage }) => (
             <a href="https://www.gatsbyjs.org/">Gatsby</a>,{' '}
             <a href="https://reactjs.org">React</a> and deployed on{' '}
             <a href="https://netlify.com">Netlify</a>. <br />
-            View the source on{' '}
+            View the source or report bugs on{' '}
             <a href="https://github.com/lukebatchelor/lukebatchelor-net">
               Github
             </a>
