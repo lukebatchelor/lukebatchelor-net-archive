@@ -9,28 +9,30 @@ import EmailIcon from '../images/icon-email.svg';
 
 const SocialCard = ({ name, icon, url }) => {
   return (
-    <div
-      style={{
-        border: '1px solid grey',
-        marginBottom: '10px',
-        padding: '10px',
-        fontSize: '20px',
-        borderRadius: '4px',
-      }}
-    >
-      <a href={url}>
+    <a href={url} style={{ textDecoration: 'none' }}>
+      <div
+        style={{
+          border: '1px solid grey',
+          marginBottom: '10px',
+          padding: '10px',
+          fontSize: '20px',
+          borderRadius: '4px',
+          textDecoration: 'none',
+        }}
+      >
         <img
           src={icon}
           alt={name}
           style={{
             display: 'inline',
-            margin: '0px 20px',
+            marginBottom: 0,
+            marginRight: '10px',
             verticalAlign: 'middle',
           }}
         />
         {name}
-      </a>
-    </div>
+      </div>
+    </a>
   );
 };
 
@@ -55,7 +57,7 @@ const Contact = () => (
       icon={LinkedinIcon}
     />
     <SocialCard
-      name="[lastname].[firstname]@gmail.com"
+      name="[last].[first]@gmail.com"
       url="mailto:?subject=Contact"
       icon={EmailIcon}
     />
