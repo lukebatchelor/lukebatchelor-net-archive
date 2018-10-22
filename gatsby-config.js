@@ -37,7 +37,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: ['gatsby-remark-copy-linked-files'],
+        destinationDir: 'linked-static',
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-offline',

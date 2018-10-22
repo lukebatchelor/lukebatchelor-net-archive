@@ -11,7 +11,7 @@ export default ({ data }) => {
         <h1>{post.frontmatter.title}</h1>
         <p style={{ color: 'grey' }}>&#124; {post.frontmatter.description}</p>
 
-        <div style={{ maxWidth: '80%', margin: '20px auto' }}>
+        <div style={{ maxWidth: '70%', margin: '30px auto' }}>
           <Img fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
