@@ -1,13 +1,54 @@
+import { graphql } from 'gatsby';
+import PostPreview from '../components/PostPreview';
 import React from 'react';
 
 import Layout from '../components/layout';
 
-const Blog = () => (
-  <Layout curPage="blog">
-    <h1>Blog</h1>
-    <p>Comming soon!</p>
-    <p>(Damn, I miss those little construction worker gifs)</p>
-  </Layout>
-);
+const Projects = ({ data }) => {
+  return (
+    <Layout curPage="blog">
+      <h1>Blog Posts</h1>
+      <div
+        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+      >
+        {data.allMarkdownRemark.edges.map(({ node }) => {
+          return <PostPreview {...node.frontmatter} {...node.fields} />;
+        })}
+      </div>
+    </Layout>
+  );
+};
 
-export default Blog;
+export const query = graphql`
+  {
+    allMarkdownRemark(
+      filter: { fields: { postType: { eq: "blogs" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            dateRelative: date(fromNow: true)
+            dateFmt: date(formatString: "DD MMM YYYY")
+            date
+            description
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 900) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          html
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default Projects;

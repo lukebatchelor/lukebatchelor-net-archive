@@ -1,44 +1,10 @@
-import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
+import PostPreview from '../components/PostPreview';
 import React from 'react';
 
 import Layout from '../components/layout';
 
-const Project = ({ title, dateRelative, dateFmt, thumbnail, slug }) => {
-  return (
-    <div
-      style={{
-        border: '1px solid white',
-        margin: '10px',
-        marginBottom: '20px',
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-      }}
-    >
-      <div
-        style={{
-          height: '250px',
-          width: '250px',
-          border: '1px solid lightgrey',
-        }}
-      >
-        <Link to={slug}>
-          <Img fluid={thumbnail.childImageSharp.fluid} />
-        </Link>
-      </div>
-      <div>
-        <Link to={slug}>{title}</Link> -{' '}
-        <span style={{ color: 'grey' }} title={dateFmt}>
-          {dateRelative}
-        </span>
-      </div>
-    </div>
-  );
-};
-
 const Projects = ({ data }) => {
-  console.log(data);
   return (
     <Layout curPage="projects">
       <h1>Projects</h1>
@@ -46,7 +12,7 @@ const Projects = ({ data }) => {
         style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
       >
         {data.allMarkdownRemark.edges.map(({ node }) => {
-          return <Project {...node.frontmatter} {...node.fields} />;
+          return <PostPreview {...node.frontmatter} {...node.fields} />;
         })}
       </div>
     </Layout>
@@ -55,7 +21,10 @@ const Projects = ({ data }) => {
 
 export const query = graphql`
   {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+    allMarkdownRemark(
+      filter: { fields: { postType: { eq: "projects" } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           frontmatter {
@@ -66,7 +35,7 @@ export const query = graphql`
             description
             thumbnail {
               childImageSharp {
-                fluid(maxWidth: 650) {
+                fluid(maxWidth: 900) {
                   ...GatsbyImageSharpFluid
                 }
               }
