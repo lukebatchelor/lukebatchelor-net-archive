@@ -4,7 +4,7 @@ import React from 'react';
 
 import Layout from '../components/layout';
 
-const Project = ({ title, dateRelative, descrtiption, thumbnail, slug }) => {
+const Project = ({ title, dateRelative, dateFmt, thumbnail, slug }) => {
   return (
     <div
       style={{
@@ -29,7 +29,9 @@ const Project = ({ title, dateRelative, descrtiption, thumbnail, slug }) => {
       </div>
       <div>
         <Link to={slug}>{title}</Link> -{' '}
-        <span style={{ color: 'grey' }}>{dateRelative}</span>
+        <span style={{ color: 'grey' }} title={dateFmt}>
+          {dateRelative}
+        </span>
       </div>
     </div>
   );
@@ -43,12 +45,6 @@ const Projects = ({ data }) => {
       <div
         style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
       >
-        {data.allMarkdownRemark.edges.map(({ node }) => {
-          return <Project {...node.frontmatter} {...node.fields} />;
-        })}
-        {data.allMarkdownRemark.edges.map(({ node }) => {
-          return <Project {...node.frontmatter} {...node.fields} />;
-        })}
         {data.allMarkdownRemark.edges.map(({ node }) => {
           return <Project {...node.frontmatter} {...node.fields} />;
         })}
