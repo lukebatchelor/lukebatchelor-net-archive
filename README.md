@@ -1,4 +1,4 @@
-# [Lukebatchelor.net](Lukebatchelor.net) ([lbatch.com](lbatch.com))
+# [Lukebatchelor.net](https://lukebatchelor.net/) ([lbatch.com](https://lbatch.com))
 
 This is my personal portfolio site Built using [Gatsby](https://gatsbyjs.org) and [React](https://reactjs.org/).
 
